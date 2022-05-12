@@ -1,0 +1,47 @@
+// console.log("Hello Nodejs ...")
+const mathLib = require('./mathLib')
+
+// const sum = (a, b) => a + b
+// console.log("The sum is ", sum(5, 6))
+
+/********Variable global */
+// console.log(process.argv)
+const a = Number(process.argv[2])
+const operation = process.argv[3]
+const b = +process.argv[4]
+// console.log({a, b})
+// console.log("The sum is ", sum(a, b))
+// console.log(`The sum is of ${a} and ${b} is ${mathLib.multiply(a, b)}`)
+
+switch (operation) {
+    case "+":
+        console.log(`The sum is of ${a} and ${b} is ${mathLib.sum(a, b)}`)
+        break;
+    case "-":
+        console.log(`The sum is of ${a} and ${b} is ${mathLib.minus(a, b)}`)
+        break;
+    case "x":
+        console.log(`The sum is of ${a} and ${b} is ${mathLib.multiply(a, b)}`)
+        break;
+
+    default:
+        console.log("Oups spmthing went wrong !!!")
+        break;
+}
+
+/****************************************/
+
+const fs = require("fs")
+
+// console.log(fs)
+
+console.log("Start Reading ....")
+
+// fs.readFile("./mathLib.js", (err, data) => {
+//     err ? console.log(err) : console.log(data.toString())
+// })
+
+const file = fs.readFileSync("./mathLib.js", "utf-8")
+console.log(file)
+
+console.log("Finish Reading ....")
